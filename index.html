@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[7.723379101699909,-75.9252485794759],[9.50823147532977,-73.75888796900982]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+        });
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        var img_Proximidadaedificaciones_1 = 'data/Proximidadaedificaciones_1.png';
+        var img_bounds_Proximidadaedificaciones_1 = [[7.765970370641703,-75.36366610497845],[9.465836017557203,-74.32047044350723]];
+        var layer_Proximidadaedificaciones_1 = new L.imageOverlay(img_Proximidadaedificaciones_1, img_bounds_Proximidadaedificaciones_1);
+        bounds_group.addLayer(layer_Proximidadaedificaciones_1);
+        map.addLayer(layer_Proximidadaedificaciones_1);
+        var img_Distanciaafuenteshdricaspermanentes_2 = 'data/Distanciaafuenteshdricaspermanentes_2.png';
+        var img_bounds_Distanciaafuenteshdricaspermanentes_2 = [[7.765970370641703,-75.36366610497845],[9.465836017557203,-74.32047044350723]];
+        var layer_Distanciaafuenteshdricaspermanentes_2 = new L.imageOverlay(img_Distanciaafuenteshdricaspermanentes_2, img_bounds_Distanciaafuenteshdricaspermanentes_2);
+        bounds_group.addLayer(layer_Distanciaafuenteshdricaspermanentes_2);
+        map.addLayer(layer_Distanciaafuenteshdricaspermanentes_2);
+        var img_Precipitacionanual_3 = 'data/Precipitacionanual_3.png';
+        var img_bounds_Precipitacionanual_3 = [[7.765970370641703,-75.36366610497845],[9.465836017557203,-74.32047044350723]];
+        var layer_Precipitacionanual_3 = new L.imageOverlay(img_Precipitacionanual_3, img_bounds_Precipitacionanual_3);
+        bounds_group.addLayer(layer_Precipitacionanual_3);
+        map.addLayer(layer_Precipitacionanual_3);
+        var img_Distanciaacentrospoblados_4 = 'data/Distanciaacentrospoblados_4.png';
+        var img_bounds_Distanciaacentrospoblados_4 = [[7.765970370641703,-75.36366610497845],[9.465836017557203,-74.32047044350723]];
+        var layer_Distanciaacentrospoblados_4 = new L.imageOverlay(img_Distanciaacentrospoblados_4, img_bounds_Distanciaacentrospoblados_4);
+        bounds_group.addLayer(layer_Distanciaacentrospoblados_4);
+        map.addLayer(layer_Distanciaacentrospoblados_4);
+        var img_Priorizacion_5 = 'data/Priorizacion_5.png';
+        var img_bounds_Priorizacion_5 = [[7.765970370641703,-75.36366610497845],[9.465836017557203,-74.32047044350723]];
+        var layer_Priorizacion_5 = new L.imageOverlay(img_Priorizacion_5, img_bounds_Priorizacion_5);
+        bounds_group.addLayer(layer_Priorizacion_5);
+        map.addLayer(layer_Priorizacion_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"Priorizacion": layer_Priorizacion_5,"Distancia a centros poblados": layer_Distanciaacentrospoblados_4,"Precipitacion anual": layer_Precipitacionanual_3,"Distancia a fuentes hídricas permanentes": layer_Distanciaafuenteshdricaspermanentes_2,"Proximidad a edificaciones": layer_Proximidadaedificaciones_1,"Google Hybrid": layer_GoogleHybrid_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
